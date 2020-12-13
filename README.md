@@ -181,3 +181,14 @@ If you enjoy this theme or find it helpful, please consider becoming my sponsor,
 ## License
 
 This work is published under [MIT](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE) License.
+
+## 备注
+
+### Tags
+
+如果需要引入tags功能，则需要在tabs文件夹中加一个tags.md文件，形式类似于同文件夹中的其他文件。由于Github Pages中不能自己生成页面，所以加入后点击tag跳转的页面会404，需要根据_layouts文件夹中的categories.html对应修改tags.html。
+
+### References
+
+* [利用Github搭建个人主页教程](https://zhuanlan.zhihu.com/p/91494657)
+* [Jekyll模板](http://jekyllthemes.org/)
