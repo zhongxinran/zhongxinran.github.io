@@ -79,7 +79,7 @@ disqus:
 #
 #     dark   - Use the dark color scheme
 #
-theme_mode:   # <light|dark>
+theme_mode: 'light'  # <light|dark>
 
 # boolean type, the global switch for ToC in posts.
 toc: true
@@ -132,17 +132,17 @@ defaults:
       breadcrumb:
         -
           label: Posts
-  -
-    scope:
-      path: tags
-    values:
-      breadcrumb:
-        -
-          label: Home
-          url: /
-        -
-          label: Tags
-          url: /tabs/tags/
+  # -
+  #   scope:
+  #     path: tags
+  #   values:
+  #     breadcrumb:
+  #       -
+  #         label: Home
+  #         url: /
+  #       -
+  #         label: Tags
+  #         url: /tabs/tags/
   -
     scope:
       path: categories
