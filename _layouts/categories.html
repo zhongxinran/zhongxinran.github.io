@@ -31,14 +31,17 @@ layout: page
           {% assign sub_categories = sub_categories | push: second_category %}
         {% endunless %}
       {% endif %}
+      <li class="d-flex justify-content-between pl-md-3 pr-md-3">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span class="dash flex-grow-1"></span>
+        <span class="text-muted small">{{ post.date | date: site.data.date_format.post.long }}</span>
+      </li>
     {% endfor %}
 
     {% assign sub_categories = sub_categories | sort %}
     {% assign sub_categories_size = sub_categories | size %}
 
-  <div class="card categories">
-    {{ content }}
-  </div> <!-- .card -->
+    
 
     {% assign group_index = group_index | plus: 1 %}
 
