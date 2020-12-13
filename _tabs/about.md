@@ -1,5 +1,5 @@
 ---
-title: About
+title: 关于这里
 icon: fas fa-info
 order: 4
 
@@ -11,4 +11,13 @@ order: 4
 ---
 
 
-> **Note**: Add Markdown syntax content to file `_tabs/about.md` and it will show up on this page.
+
+这里是钟欣然的个人主页，写一写随笔。
+
+
+
+有任何问题欢迎邮件（zhongxinran1998@126.com）和我联系吖！
+
+
+
+另，感谢友友毛毛，督促我建立了主页。

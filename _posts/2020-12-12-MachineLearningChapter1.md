@@ -78,7 +78,13 @@ mermaid: true
 不同算法的期望性能相同
 
 以二分类问题为例进行证明：
+
+
+
 ![NFL定理二分类问题证明1](https://img-blog.csdnimg.cn/20191021134322716.png#pic_center)![NFL定理二分类问题证明2](https://img-blog.csdnimg.cn/20191021134409770.png#pic_center)
+
+
+
 **启示：**
 若考虑所有潜在的问题，则所有学习算法都一样好，要谈论算法的相对优劣，必须要针对具体的学习问题
 
