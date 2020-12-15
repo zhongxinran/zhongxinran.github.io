@@ -550,13 +550,13 @@ $$
 
 使用Pang and Lee (2005)[^1]论文中用到的电影评论的公开数据，数据包含评论内容和获得的星数。删掉无法帮助区分文档的常见词（超过25%的文档中出现过的词）和不太重要的罕见词（只在少于5个文档中出现过的词），最终得到了包含2180个单词的词汇表，共计5006个文档、908000词。结果如下：
 
-[^1]:Pang, B. and Lee, L. (2005). Seeing stars: Exploiting class relationships for sentiment categorization with respect to rating scales. In Proceedings of the Association of Computational Linguistics.
+
 
 ![Alt](https://img-blog.csdnimg.cn/20191225162511664.png#pic_center =500x280)
 <center> 图2 电影评论情感分析的主题和系数 </center><br>
 
 ## 参议院修正案
-使用第109届和第110届参议院的修正案，从[开放的政府网站](www.govtrack.com)收集修正案文本和投票记录，第109届参议会包括288项修正案，共计62000词，第110届参议会包括213项修正案，63000词。响应变量为投票的理想点分析的判别参数（Clinton et al.,2004）[^2]。
+使用第109届和第110届参议院的修正案，从[开放的政府网站](www.govtrack.com)收集修正案文本和投票记录，第109届参议会包括288项修正案，共计62000词，第110届参议会包括213项修正案，63000词。响应变量为投票的理想点分析的判别参数（Clinton et al.,2004）[2]。
 
 投票数据的理想点分析在定量政治学中将参议员映射到政治光谱上的一个真实值点，假设每个参议员$j$的投票情况用一个实值潜在变量$x_j$表示，$y_{ij}$是二元变量，表示议员$j$对修正案$i$的投票，$\beta_i$表示判别参数，$\beta_i$与$x_j$的符号相同时，议员$j$更有可能投票赞成修正案$i$，符号相反时更可能不赞成，截距项$\alpha_i$被称为难度，即允许投票中存在偏见，而不管议员的理想观点如何。
 
@@ -564,7 +564,7 @@ $$
 y_{i j} \sim \operatorname{Probit}\left(x_{j} \beta_{i}+\alpha_{i}\right)\tag{46}
 $$
 
-[^2]:Clinton, J., Jackman, S., and Rivers, D. (2004). The statistical analysis of roll call data. American Political Science Review, 98(2):355-370.
+
 
 > 理想点法：根据有限个评价对象与理想化目标的接近程度进行排序的方法，是在现有的对象中进行相对优劣的评价<br>
 > 步骤：
@@ -609,12 +609,11 @@ $$
 未来可以改进的方向有以下四个：
 - sLDA的半监督版本：对于常见的部分标记的语料库，只需要省略（14）式中的最后两项，并且只对有标记的文档计算（17）式和（18）式即可
 - 如果每个文档都可以观测到一个额外的固定维的协向量，可以将其纳入线性预测中
-- 本文中提到的处理响应变量的方法也可以纳入其它LDA变体中，如作者主题模型（Rosen-Zvi et al., 2004[^3]）、群体遗传学模型（Pritchard et al., 2000[^4]）和调查数据模型（Erosheva, 2002[^5]）
-
-[^3]:Rosen-Zvi, M., Griffiths, T., Steyvers, M., and Smith, P. (2004). The author-topic model for authors and documents. In Proceedings of the 20th Conference on Uncertainty in Articial Intelligence, pages 487-494. AUAI Press.
-
-[^4]:Pritchard, J., Stephens, M., and Donnelly, P. (2000). Inference of population structure using multilocus genotype data. Genetics, 155:945-959.
-
-[^5]:Erosheva, E. (2002). Grade of membership and latent structure models with application to disability survey data. PhD thesis, Carnegie Mellon University, Department of Statistics.
+- 本文中提到的处理响应变量的方法也可以纳入其它LDA变体中，如作者主题模型（Rosen-Zvi et al., 2004[3]）、群体遗传学模型（Pritchard et al., 2000[4]）和调查数据模型（Erosheva, 2002[5]）
 
 # 6. 参考文献
+1. Pang, B. and Lee, L. (2005). Seeing stars: Exploiting class relationships for sentiment categorization with respect to rating scales. In Proceedings of the Association of Computational Linguistics.
+2. Clinton, J., Jackman, S., and Rivers, D. (2004). The statistical analysis of roll call data. American Political Science Review, 98(2):355-370.
+3. Rosen-Zvi, M., Griffiths, T., Steyvers, M., and Smith, P. (2004). The author-topic model for authors and documents. In Proceedings of the 20th Conference on Uncertainty in Articial Intelligence, pages 487-494. AUAI Press.
+4. Pritchard, J., Stephens, M., and Donnelly, P. (2000). Inference of population structure using multilocus genotype data. Genetics, 155:945-959.
+5. Erosheva, E. (2002). Grade of membership and latent structure models with application to disability survey data. PhD thesis, Carnegie Mellon University, Department of Statistics.
