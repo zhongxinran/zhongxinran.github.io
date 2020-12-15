@@ -545,3 +545,76 @@ $$
 > 
 > 其中$C$为$m\times k$矩阵，其$(i,j)$元为$\frac{\partial g_{i}}{\partial u_{j}}\vert_{u=a}$
 
+# 4. 实验
+## 电影评论的情感分析
+
+使用Pang and Lee (2005)[1]论文中用到的电影评论的公开数据，数据包含评论内容和获得的星数。删掉无法帮助区分文档的常见词（超过25%的文档中出现过的词）和不太重要的罕见词（只在少于5个文档中出现过的词），最终得到了包含2180个单词的词汇表，共计5006个文档、908000词。结果如下：
+
+
+
+![Alt](https://img-blog.csdnimg.cn/20191225162511664.png#pic_center =500x280)
+<center> 图2 电影评论情感分析的主题和系数 </center><br>
+
+## 参议院修正案
+使用第109届和第110届参议院的修正案，从[开放的政府网站](www.govtrack.com)收集修正案文本和投票记录，第109届参议会包括288项修正案，共计62000词，第110届参议会包括213项修正案，63000词。响应变量为投票的理想点分析的判别参数（Clinton et al.,2004）[2]。
+
+投票数据的理想点分析在定量政治学中将参议员映射到政治光谱上的一个真实值点，假设每个参议员$j$的投票情况用一个实值潜在变量$x_j$表示，$y_{ij}$是二元变量，表示议员$j$对修正案$i$的投票，$\beta_i$表示判别参数，$\beta_i$与$x_j$的符号相同时，议员$j$更有可能投票赞成修正案$i$，符号相反时更可能不赞成，截距项$\alpha_i$被称为难度，即允许投票中存在偏见，而不管议员的理想观点如何。
+
+$$
+y_{i j} \sim \operatorname{Probit}\left(x_{j} \beta_{i}+\alpha_{i}\right)\tag{46}
+$$
+
+
+
+> 理想点法：根据有限个评价对象与理想化目标的接近程度进行排序的方法，是在现有的对象中进行相对优劣的评价<br>
+> 步骤：
+> （1）构造初始矩阵（n个待评价对象，m个评价指标）
+> （2）构造（加权）标准化矩阵
+> （3） 确定正、负理想解（每个维度的最大值、最小值）
+> （4） 计算距离
+> （5）计算相对接近度并做出判断
+
+结果如下：
+![Alt](https://img-blog.csdnimg.cn/201912261243034.png#pic_center =500x121)
+<center> 图3 第109届参议会修正案的主题和系数 </center><br>
+
+![Alt](https://img-blog.csdnimg.cn/20191226151410306.png#pic_center =500x193)
+<center> 图4 第110届参议会修正案的主题和系数 </center><br>
+
+## 结果
+利用五折交叉验证评估预测质量，采用两种方法测量误差：
+- 折外预测和真实值之间的相关性
+- 折外响应值的变异分数$predictive\;R^2$ 
+
+$$
+\mathrm{pR}^{2}=1-\frac{\left.\sum(y-\hat{y})^{2}\right)}{\left.\sum(y-\bar{y})^{2}\right)}
+$$
+
+我们将sLDA与先使用LDA再对响应变量和$\bar{\phi}_{d}$进行回归进行了比较，并查看了不同主题数下的情形，结果说明sLDA对数据的预测做出了改进。结果如下：
+
+![Alt](https://img-blog.csdnimg.cn/20191226151819859.png#pic_center =500x503)
+<center> 图5 电影评论的预测结果对比 </center><br>
+
+![Alt](https://img-blog.csdnimg.cn/2019122615234411.png#pic_center =500x506)
+<center> 图6 第109届参议会修正案的预测结果对比 </center><br>
+
+![Alt](https://img-blog.csdnimg.cn/20191226152553295.png#pic_center =500x506)
+<center> 图7 第110届参议会修正案的预测结果对比 </center><br>
+
+最后，我们将sLDA与LASSO进行比较。利用每个文档在词汇表上的经验分布作为LASSO的协变量，比较LASSO在不同复杂系数下达到的最高的$pR^2$和sLDA在不同主题数下达到的最高的$pR^2$。电影评论数据、109届参议院修正案和110届参议院修正案中，sLDA和LASSO达到的最高的$pR^2$分别为0.432和0.426，0.27和0.15，0.23和0.16，sLDA效果更好。
+
+> LASSO是L1正则化最小二乘回归，是针对高维数据常用的预测方法
+
+# 5. 讨论
+未来可以改进的方向有以下四个：
+
+- sLDA的半监督版本：对于常见的部分标记的语料库，只需要省略（14）式中的最后两项，并且只对有标记的文档计算（17）式和（18）式即可
+- 如果每个文档都可以观测到一个额外的固定维的协向量，可以将其纳入线性预测中
+- 本文中提到的处理响应变量的方法也可以纳入其它LDA变体中，如作者主题模型（Rosen-Zvi et al., 2004[3]）、群体遗传学模型（Pritchard et al., 2000[4]）和调查数据模型（Erosheva, 2002[5]）
+
+# 6. 参考文献
+1. Pang, B. and Lee, L. (2005). Seeing stars: Exploiting class relationships for sentiment categorization with respect to rating scales. In Proceedings of the Association of Computational Linguistics.
+2. Clinton, J., Jackman, S., and Rivers, D. (2004). The statistical analysis of roll call data. American Political Science Review, 98(2):355-370.
+3. Rosen-Zvi, M., Griffiths, T., Steyvers, M., and Smith, P. (2004). The author-topic model for authors and documents. In Proceedings of the 20th Conference on Uncertainty in Articial Intelligence, pages 487-494. AUAI Press.
+4. Pritchard, J., Stephens, M., and Donnelly, P. (2000). Inference of population structure using multilocus genotype data. Genetics, 155:945-959.
+5. Erosheva, E. (2002). Grade of membership and latent structure models with application to disability survey data. PhD thesis, Carnegie Mellon University, Department of Statistics.
