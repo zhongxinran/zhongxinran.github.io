@@ -552,7 +552,7 @@ $$
 
 
 
-![Alt](https://img-blog.csdnimg.cn/20191225162511664.png#pic_center =500x280)
+![Alt](https://img-blog.csdnimg.cn/20191225162511664.png#pic_center)
 <center> 图2 电影评论情感分析的主题和系数 </center><br>
 
 ## 参议院修正案
@@ -575,10 +575,10 @@ $$
 > （5）计算相对接近度并做出判断
 
 结果如下：
-![Alt](https://img-blog.csdnimg.cn/201912261243034.png#pic_center =500x121)
+![Alt](https://img-blog.csdnimg.cn/201912261243034.png#pic_center)
 <center> 图3 第109届参议会修正案的主题和系数 </center><br>
 
-![Alt](https://img-blog.csdnimg.cn/20191226151410306.png#pic_center =500x193)
+![Alt](https://img-blog.csdnimg.cn/20191226151410306.png#pic_center)
 <center> 图4 第110届参议会修正案的主题和系数 </center><br>
 
 ## 结果
@@ -592,13 +592,13 @@ $$
 
 我们将sLDA与先使用LDA再对响应变量和$\bar{\phi}_{d}$进行回归进行了比较，并查看了不同主题数下的情形，结果说明sLDA对数据的预测做出了改进。结果如下：
 
-![Alt](https://img-blog.csdnimg.cn/20191226151819859.png#pic_center =500x503)
+![Alt](https://img-blog.csdnimg.cn/20191226151819859.png#pic_center)
 <center> 图5 电影评论的预测结果对比 </center><br>
 
-![Alt](https://img-blog.csdnimg.cn/2019122615234411.png#pic_center =500x506)
+![Alt](https://img-blog.csdnimg.cn/2019122615234411.png#pic_center)
 <center> 图6 第109届参议会修正案的预测结果对比 </center><br>
 
-![Alt](https://img-blog.csdnimg.cn/20191226152553295.png#pic_center =500x506)
+![Alt](https://img-blog.csdnimg.cn/20191226152553295.png#pic_center)
 <center> 图7 第110届参议会修正案的预测结果对比 </center><br>
 
 最后，我们将sLDA与LASSO进行比较。利用每个文档在词汇表上的经验分布作为LASSO的协变量，比较LASSO在不同复杂系数下达到的最高的$pR^2$和sLDA在不同主题数下达到的最高的$pR^2$。电影评论数据、109届参议院修正案和110届参议院修正案中，sLDA和LASSO达到的最高的$pR^2$分别为0.432和0.426，0.27和0.15，0.23和0.16，sLDA效果更好。
