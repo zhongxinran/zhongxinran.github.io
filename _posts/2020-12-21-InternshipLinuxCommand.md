@@ -16,9 +16,25 @@ mermaid: true
 * 查看当前路径下的文件：`ls`
 * 查看当前路径：`pwd`
 * 创建目录：`mkdir`
-
 * 创建文件：`touch xxx.txt`
 * 删除文件夹及其内所有文件：`rm -rf xxx`
+* 查看文件大小：`du -h --max-depth=1`
+
+
+
+# 上传下载压缩相关
+
+* 上传文件到服务器：`scp /local_path/filename username@servername:/remote_path  `
+* 从服务器下载文件：`scp username@servername:/remote_path/filename /local_path`
+* 上传文件夹到服务器：`scp -r /local_path/local_dir username@servername:/remote_path  `
+* 从服务器下载文件夹：`scp -r username@servername:/remote_path/remote_dir /local_path`
+* 压缩文件：
+  * `tar zcvf FileName.tar.gz DirName`
+* 解压缩文件：
+  * `unzip filename. zip`
+  * `tar -zxvf filename. tar.gz`
+  * `tar -Jxvf filename. tar.xz`
+  * `tar -Zxvf filename. tar.Z`
 
 
 
@@ -47,3 +63,21 @@ mermaid: true
   * `wq`：保存文件并退出
 
 [更多 vim 命令与快捷键](https://www.runoob.com/linux/linux-vim.html)
+
+
+
+# Git
+
+* `git clone xxx`：拉取远程代码到本地
+* `git pull`：拉取远程最新代码到本地
+* `git add .`
+* `git commit -m "xxx"`
+* `git push origin`
+* `git branch` 查看分支
+* `git checkout xxx`：切换分支
+* `git status` ：查看现在的状态
+* `git log`：查看提交日志
+* `git reset HEAD^` `git reset HAED^^` `git reset HEAD~10` `git reset commit_id` ：版本回退，分别为回退1个版本、2个版本、10个版本、回退到commit_id这个版本，其中commit_id可以通过`git log`查询
+* `git stash` ：把修改存到缓存中
+* `git stash pop` ：读出缓存
+* `git ls-files`：查看git跟踪的文件和文件夹
