@@ -69,13 +69,19 @@ mermaid: true
 # Git
 
 * `git clone xxx`：拉取远程代码到本地
-* `git pull`：拉取远程最新代码到本地
+* `git fetch origin remote_branch_name:local_branch_name`：拉取远程分支到本地
+* `git pull`：拉取远程对应分支的最新代码到本地
 * `git add .`
 * `git commit -m "xxx"`
-* `git push origin`
-* `git branch` 查看分支
+* `git push origin local_branch_name:remote_branch_name` 
+* `git push origin --delete remote_branch_name`：删除远程分支
+* `git branch`：查看分支
+* `git branch -vv`：查看本地分支与远程分支的关系
+* `git branch -d local_branch_name`/`git branch -D local_branch_name`：删除本地分支
 * `git checkout xxx`：切换分支
+* `git branch --set-upstream-to origin/remote_branch_name`：将当前分支和远程分支关联起来
 * `git status` ：查看现在的状态
+* `git diff`：查看不同
 * `git log`：查看提交日志
 * `git reset HEAD^` `git reset HAED^^` `git reset HEAD~10` `git reset commit_id` ：版本回退，分别为回退1个版本、2个版本、10个版本、回退到commit_id这个版本，其中commit_id可以通过`git log`查询
 * `git stash` ：把修改存到缓存中
