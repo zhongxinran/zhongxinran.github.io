@@ -79,10 +79,12 @@ mermaid: true
 * `git branch -vv`：查看本地分支与远程分支的关系
 * `git branch -d local_branch_name`/`git branch -D local_branch_name`：删除本地分支
 * `git checkout xxx`：切换分支
+* `git checkout -b new_branch:old_branch`：克隆本地分支，保留修改
 * `git branch --set-upstream-to origin/remote_branch_name`：将当前分支和远程分支关联起来
 * `git status` ：查看现在的状态
 * `git diff`：查看不同
 * `git log`：查看提交日志
+* `git reset HEAD <file>` ：撤回已经add的文件，保留修改，file参数可省略
 * `git reset HEAD^` `git reset HAED^^` `git reset HEAD~10` `git reset commit_id` ：版本回退，分别为回退1个版本、2个版本、10个版本、回退到commit_id这个版本，其中commit_id可以通过`git log`查询
 * `git stash` ：把修改存到缓存中
 * `git stash pop` ：读出缓存
