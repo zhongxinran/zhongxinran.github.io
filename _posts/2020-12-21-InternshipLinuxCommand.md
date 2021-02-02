@@ -88,4 +88,6 @@ mermaid: true
 * `git reset HEAD^` `git reset HAED^^` `git reset HEAD~10` `git reset commit_id` ：版本回退，分别为回退1个版本、2个版本、10个版本、回退到commit_id这个版本，其中commit_id可以通过`git log`查询
 * `git stash` ：把修改存到缓存中
 * `git stash pop` ：读出缓存
+* `git stash clear`：清除缓存
 * `git ls-files`：查看git跟踪的文件和文件夹
+* `git clean -d -fx`：清除未被git跟踪的文件，强制执行
